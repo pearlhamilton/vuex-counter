@@ -3,11 +3,19 @@ import { createStore } from 'vuex'
 export default createStore({
   // state is where the data is stored
   state: {
+    counter: 0
   },
   // mutations are methods that change the data that is in the state. 
   // You can only change data in state by 'committing' or triggering a mutation
   // You cannot trigger ascynchronous code inside a mutation
   mutations: {
+
+    increaseCounter(state){
+        state.counter++
+    },
+    decreaseCounter(state){
+          state.counter--
+    }
   },
   // Actions are also methods but cannot change data in state
   //Actions commit a mutation which then changes data in state
