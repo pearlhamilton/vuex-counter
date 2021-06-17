@@ -18,7 +18,8 @@ export default createStore({
     decreaseCounter(state){
           state.counter--
     },
-    getRandomNumber(state){
+    getRandomNumber(state, randomNumber){
+      state.randomNumber = randomNumber
 
     }
   },
@@ -27,11 +28,12 @@ export default createStore({
   // You can have asynchronous code in actions i.e. to get data from an API and wait for a response, then commit a mutation to update state 
   // You dispatch an action
   actions: {
-    getRandomNumber(){
+    getRandomNumber({commit}){
       axios.get('api/v1.0/random?min=100&max=1000&count=1', {
 
       })
-      .then(response => console.log(response))
+      .then(response => {commit('getRandomNumber', response.data[0])
+    })
       .catch(error => console.log(error))
     }
   },
