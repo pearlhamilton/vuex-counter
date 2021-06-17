@@ -7,6 +7,11 @@
       <button @click="$store.commit('decreaseCounter')">-</button>
       <button @click="$store.commit('increaseCounter')">+</button>
     </div>
+  <div>
+    <button @click="$store.dispatch('getRandomNumber')"> Get a random number :)
+    </button>
+    {{$store.state.randomNumber}}
+  </div>
 
   </div>
 </template>

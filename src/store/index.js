@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 export default createStore({
   // state is where the data is stored
   state: {
-    counter: 0
+    counter: 0,
+    randomNumber: null
   },
   // mutations are methods that change the data that is in the state. 
   // You can only change data in state by 'committing' or triggering a mutation
@@ -15,6 +16,9 @@ export default createStore({
     },
     decreaseCounter(state){
           state.counter--
+    },
+    getRandomNumber(state){
+
     }
   },
   // Actions are also methods but cannot change data in state
@@ -22,6 +26,9 @@ export default createStore({
   // You can have asynchronous code in actions i.e. to get data from an API and wait for a response, then commit a mutation to update state 
   // You dispatch an action
   actions: {
+    getRandomNumber(){
+      console.log('action dispatched')
+    }
   },
   // Getters allow us to get data from state
   // You can access state directly from components however.
