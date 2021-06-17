@@ -8,6 +8,7 @@
       <button @click="$store.commit('increaseCounter')">+</button>
     </div>
   <div>
+    <!-- dispact the action, that calls the api, then commit the mutation-->
     <button @click="$store.dispatch('getRandomNumber')"> Get a random number :)
     </button>
     {{$store.state.randomNumber}}
