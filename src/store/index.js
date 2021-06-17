@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import axios from 'axios'
 
 export default createStore({
   // state is where the data is stored
@@ -27,7 +28,11 @@ export default createStore({
   // You dispatch an action
   actions: {
     getRandomNumber(){
-      console.log('action dispatched')
+      axios.get('api/v1.0/random?min=100&max=1000&count=1', {
+
+      })
+      .then(response => console.log(response))
+      .catch(error => console.log(error))
     }
   },
   // Getters allow us to get data from state
