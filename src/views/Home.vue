@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <div class="counter">
-      0
+      {{counter}}
     </div>
     <div class="buttons">
-      <button>+</button>
-      <button>-</button>
+      <button @click="decreaseCounter">-</button>
+      <button @click="increaseCounter">+</button>
     </div>
 
   </div>
@@ -18,6 +18,21 @@ export default {
   name: 'Home',
   components: {
     
+  },
+
+  data(){
+    return{
+      counter: 0
+    }
+  },
+
+  methods: {
+    increaseCounter(){
+      this.counter++
+    },
+    decreaseCounter(){
+      this.counter--
+    }
   }
 }
 </script>
