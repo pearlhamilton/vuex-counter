@@ -1,5 +1,12 @@
 <template>
   <div class="home">
+    <div class="counter">
+      0
+    </div>
+    <div class="buttons">
+      <button>+</button>
+      <button>-</button>
+    </div>
 
   </div>
 </template>
