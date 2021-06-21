@@ -37,9 +37,14 @@ export default createStore({
       .catch(error => console.log(error))
     }
   },
-  // Getters allow us to get data from state
+  // Getters allow us to get data from state and modify it
   // You can access state directly from components however.
   getters:{
+    squareNumber(state){
+      return state.counter * state.counter
+
+    }
+
 
   },
   // Allows us to break up our store into seperate modules with each module having its own state, mutations, actions and getters
