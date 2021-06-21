@@ -1,19 +1,8 @@
 <template>
   <div class="home">
-    <div class="counter"
-      :style="{color: $store.state.color}">
-      {{$store.state.counter}}
-    </div>
-    <div class="squared">
-      {{$store.state.counter}}
-      <sup>2</sup> = 
-      {{$store.getters.squareNumber}}
-
-    </div>
-    <div class="buttons">
-      <button @click="$store.commit('decreaseCounter')">-</button>
-      <button @click="$store.commit('increaseCounter')">+</button>
-    </div>
+    <Counter/>
+    <CounterSquared/>
+    <Buttons/>
     <input placeholder="Enter a color" type="text" v-model="color">
   <div>
     <!-- dispact the action, that calls the api, then commit the mutation-->
@@ -26,11 +15,16 @@
 </template>
 
 <script>
-// @ is an alias to /src
+import Counter from '../components/Counter.vue'
+import CounterSquared from '../components/CounterSquared.vue'
+import Buttons from '../components/Buttons'
 
 export default {
   name: 'Home',
   components: {
+    Counter,
+    CounterSquared,
+    Buttons
     
   },
   computed: {color: {
@@ -64,7 +58,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 div{
   margin-bottom: 10px;
 }
