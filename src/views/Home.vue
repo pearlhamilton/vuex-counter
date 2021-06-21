@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <div class="counter">
+    <div class="counter"
+      :style="{color: $store.state.color}">
       {{$store.state.counter}}
     </div>
     <div class="squared">
@@ -13,6 +14,7 @@
       <button @click="$store.commit('decreaseCounter')">-</button>
       <button @click="$store.commit('increaseCounter')">+</button>
     </div>
+    <input placeholder="Enter a color" type="text" v-model="color">
   <div>
     <!-- dispact the action, that calls the api, then commit the mutation-->
     <button @click="$store.dispatch('getRandomNumber')"> Get a random number :)
@@ -31,6 +33,15 @@ export default {
   components: {
     
   },
+  computed: {color: {
+    get(){
+      return this.$store.state.color
+    },
+    set(newColor){
+      this.$store.commit('changeColor', newColor)
+    }
+  }
+  }
 
   // data(){
   //   return{

@@ -5,8 +5,10 @@ export default createStore({
   // state is where the data is stored
   state: {
     counter: 0,
-    randomNumber: null
+    randomNumber: null,
+    color: 'pink'
   },
+ 
   // mutations are methods that change the data that is in the state. 
   // You can only change data in state by 'committing' or triggering a mutation
   // You cannot trigger ascynchronous code inside a mutation
@@ -21,6 +23,10 @@ export default createStore({
     getRandomNumber(state, randomNumber){
       state.randomNumber = randomNumber
 
+    },
+
+    changeColor(state, newColor){
+      state.color = newColor
     }
   },
   // Actions are also methods but cannot change data in state
